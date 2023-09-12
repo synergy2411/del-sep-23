@@ -6,6 +6,7 @@
   width: 500px;
   margin: 0 auto;
   background-color: rgb(235, 232, 229);
+  padding-bottom: 20px;
 }
 
 h1 {
@@ -22,14 +23,15 @@ p {
 }
 
 .form-container {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 table {
   margin-bottom: 18px;
+  width: 100%;
 }
 table .label {
-  width: 150px;
+  width: 160px;
   float: right;
   text-align: right;
   /* line-height: 24px; */
@@ -46,10 +48,10 @@ button {
   margin: 0 auto;
 }
 
-.btn-container {
-  text-align: center;
+button:hover {
+  background-color: #1098ad;
 }
 
-#vibes-timing {
-  width: 100%;
+.btn-container {
+  text-align: center;
 }

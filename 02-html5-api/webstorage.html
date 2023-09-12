@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Storage Demo</title>
+  </head>
+  <body>
+    <form>
+      <label for="">Select your favourite Color : </label>
+      <input type="color" id="favColor" />
+      <!-- <button id="btnSave" onclick="btnClickFn(event)">Save</button> -->
+      <button id="btnSave" onclick="btnClickFn(event)">Save</button>
+    </form>
+
+    <script>
+      window.onload = function () {
+        var favColor = localStorage.getItem("favColor");
+
+        if (favColor) {
+          document.body.style.backgroundColor = favColor;
+        }
+      };
+
+      var btnSave = document.querySelector("#btnSave");
+      var favColorField = document.querySelector("#favColor");
+
+      btnSave.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (favColorField.value === "") return false;
+        console.log("Fav Color : ", favColorField.value);
+        localStorage.setItem("favColor", favColorField.value);
+      });
+
+      //   ALTERNATE BUTTON CLICK APPROACH
+      //   function btnClickFn(event){
+      //     event.preventDefault();
+      //     if (favColorField.value === "") return false;
+      //     console.log("Fav Color : ", favColorField.value);
+      //     localStorage.setItem("favColor", favColorField.value);
+      //   }
+    </script>
+  </body>
+</html>
