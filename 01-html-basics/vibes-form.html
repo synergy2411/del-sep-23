@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibes Form</title>
+    <link rel="stylesheet" href="./css/vibes-form.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Good Vibes Form</h1>
+
+      <p>Tell us something positive that happend to you today.</p>
+      <div class="form-container">
+        <table>
+          <tr>
+            <td class="label">Name:</td>
+            <td class="form-field">
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Email:</td>
+            <td class="form-field"><input type="email" /></td>
+          </tr>
+          <tr>
+            <td class="label">On a scale of 1-10, how good it:</td>
+            <td class="form-field">
+              <input type="range" step="1" min="1" max="10" value="0" />
+            </td>
+          </tr>
+          <tr>
+            <td class="label">When did it happened:</td>
+            <td class="form-field">
+              <select name="" id="vibes-place">
+                <option value="">At Home</option>
+                <option value="">In Market</option>
+                <option value="">While shopping</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">At what time of day did it happen :</td>
+            <td class="form-field">
+              <input type="radio" name="vibes-timing" value="morning" /> Morning
+              <br />
+              <input type="radio" name="vibes-timing" value="noon" /> Afternoon
+              <br />
+              <input type="radio" name="vibes-timing" value="evening" /> Evening
+            </td>
+          </tr>
+          <tr>
+            <td class="label">
+              What emotion did you experience :<br />
+              (Select Multiple)
+            </td>
+            <td class="form-field">
+              <input type="checkbox" name="emotion-1" value="exicted" /> Excited
+              <br />
+              <input type="checkbox" name="emotion-2" value="humbled" /> Humbled
+              <br />
+              <input type="checkbox" name="emotion-3" value="enthusiastic" />
+              Enthusiastic
+            </td>
+          </tr>
+
+          <tr>
+            <td class="label">Please describe your positive experience:</td>
+            <td class="form-field">
+              <textarea rows="4"></textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="btn-container">
+        <button>Save</button>
+      </div>
+    </div>
+  </body>
+</html>
