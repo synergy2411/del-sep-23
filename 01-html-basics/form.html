@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Elements</title>
+  </head>
+  <body>
+    <form method="get">
+      <label for="username">Username :</label>
+      <input type="text" name="username" required id="username" />
+      <br />
+
+      <label for="contactNumber">Contact Number :</label>
+      <input
+        type="number"
+        minlength="10"
+        name="contactNumber"
+        id="contactNumber"
+      />
+      <br />
+
+      <label for="dob">Date of Birth :</label>
+      <input type="date" name="dob" min="2022-04-01" max="2023-03-31" /> <br />
+
+      <label for="salary">Salary:</label>
+      <input type="range" name="salary" /> <br />
+
+      <label for="email">Email : </label>
+      <input type="email" name="email" /> <br />
+
+      <label for="password"> Password :</label>
+      <input type="password" name="password" /> <br />
+
+      <label for="favColor">Favourite Color : </label>
+      <input type="color" name="favColor" /> <br />
+
+      <label for="city">City :</label>
+      <select name="city">
+        <option value="del">Delhi</option>
+        <option value="pnq">Pune</option>
+        <option value="hyd">Hyderabad</option>
+        <option value="blr">Bengaluru</option>
+      </select>
+
+      <br />
+      <label for="designation">Designation :</label>
+      <input type="radio" name="designation" /> Developer
+      <input type="radio" name="designation" /> Admin
+      <input type="radio" name="designation" /> Manager
+
+      <br />
+      <label for="languages">Languages Known :</label>
+      <input type="checkbox" value="cpp" class="chkbox" /> C++
+      <input type="checkbox" class="chkbox" value="java" /> Java
+      <input type="checkbox" class="chkbox" value="react" /> React
+      <input type="checkbox" class="chkbox" value="angular" /> Angular
+      <br />
+
+      <input type="submit" value="Submit" onclick="submitHandler(event)" />
+    </form>
+
+    <script>
+      var usernameField = document.getElementById("username");
+      var contactNumberField = document.querySelector("#contactNumber");
+
+      var arrayCheckBoxes = document.querySelectorAll(".chkbox");
+
+      function submitHandler(evt) {
+        evt.preventDefault();
+
+        var paragraphElement = document.createElement("p");
+        paragraphElement.innerText =
+          "Hello " +
+          usernameField.value +
+          "\n" +
+          "Contact Number : " +
+          contactNumberField.value;
+
+        //   fetching Checkboxes values
+        var checkedItems = "";
+
+        for (var i = 0; i < arrayCheckBoxes.length; i++) {
+          if (arrayCheckBoxes[i].checked) {
+            checkedItems += "Checked : " + arrayCheckBoxes[i].value + "\n";
+          }
+        }
+
+        console.log(checkedItems);
+        paragraphElement.innerHTML += checkedItems;
+
+        document.body.appendChild(paragraphElement);
+      }
+    </script>
+  </body>
+</html>
