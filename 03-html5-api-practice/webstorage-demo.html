@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Storage Demo</title>
+  </head>
+  <body>
+    <h1>You are visitor # <span id="count"></span></h1>
+
+    <button id="reset">Reset</button>
+
+    <script>
+      window.onload = function () {
+        var spanEl = document.getElementById("count");
+        var numberOfHits = Number(localStorage.getItem("hits"));
+
+        if (numberOfHits) {
+          numberOfHits += 1;
+          localStorage.setItem("hits", numberOfHits.toString());
+        } else {
+          ++numberOfHits;
+          localStorage.setItem("hits", numberOfHits.toString());
+        }
+
+        spanEl.innerText = numberOfHits;
+
+        const reset = document.getElementById("reset");
+        reset.addEventListener("click", function () {
+          localStorage.clear();
+          localStorage.setItem("hits", "0");
+          spanEl.innerText = 0;
+        });
+      };
+    </script>
+  </body>
+</html>
