@@ -17,11 +17,11 @@
 
     <div id="container"></div>
 
-    <img src="https://picsum.photos/200" alt="" draggable id="image" />
+    <img src="https://picsum.photos/200" alt="" draggable id="image_id" />
 
     <script>
       var container = document.getElementById("container");
-      var imgEl = document.getElementById("image");
+      var imgEl = document.getElementById("image_id");
 
       container.addEventListener("drag", function () {
         console.log("DRAG");
@@ -39,6 +39,7 @@
 
       imgEl.addEventListener("dragstart", function (event) {
         console.log("DRAG START", event);
+        console.log("EVENT TARGET ID : ", event.target.id);
         event.dataTransfer.setData("text", event.target.id);
       });
       container.addEventListener("drop", function (event) {

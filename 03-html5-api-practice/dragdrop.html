@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag Drop Blocks</title>
+    <style>
+      body {
+      }
+      .block {
+        width: 100px;
+        display: inline-block;
+        background-color: rgb(118, 118, 118);
+        border: 3px #444 solid;
+        margin-right: 20px;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block" draggable="true">A</div>
+    <div class="block" draggable="true">B</div>
+    <div class="block" draggable="true">C</div>
+
+    <script>
+      var containers = document.getElementsByClassName("block");
+      var sourceEl = null;
+
+      for (var i = 0; i < containers.length; i++) {
+        containers[i].addEventListener("dragstart", onDragStart);
+        containers[i].addEventListener("dragover", onDragOver);
+        containers[i].addEventListener("drop", onDrop);
+      }
+
+      function onDragStart(event) {
+        sourceEl = event.target; // Div A
+        event.dataTransfer.setData("text", event.target.innerText); // A
+      }
+
+      function onDragOver(event) {
+        event.preventDefault();
+      }
+
+      function onDrop(event) {
+        var text = event.dataTransfer.getData("text"); // A
+        sourceEl.innerText = event.target.innerText;
+        event.target.innerText = text;
+      }
+    </script>
+  </body>
+</html>
