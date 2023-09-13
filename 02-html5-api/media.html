@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Demo</title>
+  </head>
+  <body>
+    <h1>Audio / Video Demo</h1>
+
+    <!-- <audio controls>
+      <source src="./audio/sample.mp3" type="audio/mp3" />
+      <source src="./audio/sample.ogg" type="audio/ogg" />
+      <p>Please download media from <a href="./audio/sample.mp3">here.</a></p>
+    </audio> -->
+
+    <video
+      src="./video/sample.mp4"
+      controls
+      width="450px"
+      height="300px"
+      poster="https://picsum.photos/200"
+      id="video"
+    ></video>
+
+    <button id="btnPlayPause">▶</button>
+
+    <script>
+      window.onload = function () {
+        var btnPlayPause = document.getElementById("btnPlayPause");
+        var videoEl = document.getElementById("video");
+
+        console.log("Duration : ", videoEl.duration);
+
+        videoEl.addEventListener("timeupdate", function (e) {});
+
+        btnPlayPause.addEventListener("click", function (e) {
+          if (videoEl.paused) {
+            videoEl.play();
+            e.target.innerText = "⏸";
+          } else {
+            videoEl.pause();
+            e.target.innerText = "▶";
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

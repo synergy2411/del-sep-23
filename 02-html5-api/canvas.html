@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Demo</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="400px"
+      height="400px"
+      style="border: 1px grey solid"
+    ></canvas>
+
+    <script>
+      var canvasEl = document.getElementById("canvas");
+
+      const context = canvasEl.getContext("2d");
+
+      context.strokeStyle = "green";
+      context.strokeRect(10, 10, 200, 200);
+
+      context.fillStyle = "#ff45ff";
+      context.fillRect(120, 10, 100, 120);
+
+      context.beginPath();
+      context.moveTo(10, 10);
+      context.lineTo(100, 120);
+      context.lineTo(10, 160);
+      context.lineTo(100, 200);
+      context.stroke();
+      context.closePath();
+
+      context.fillStyle = "blue";
+      context.fillText("Hello Canvas", 10, 260);
+
+      //   context.strokeStyle = "20px bold";
+      context.strokeText("Stroke Text", 10, 300);
+
+      var imageEl = document.createElement("img");
+
+      imageEl.onload = function () {
+        context.drawImage(imageEl, 100, 100);
+      };
+
+      imageEl.src = "https://picsum.photos/200";
+    </script>
+  </body>
+</html>

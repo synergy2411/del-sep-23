@@ -14,21 +14,14 @@
       window.onload = function () {
         var spanEl = document.getElementById("count");
         var numberOfHits = Number(localStorage.getItem("hits"));
+        var reset = document.getElementById("reset");
 
-        if (numberOfHits) {
-          numberOfHits += 1;
-          localStorage.setItem("hits", numberOfHits.toString());
-        } else {
-          ++numberOfHits;
-          localStorage.setItem("hits", numberOfHits.toString());
-        }
-
+        ++numberOfHits;
+        localStorage.setItem("hits", numberOfHits.toString());
         spanEl.innerText = numberOfHits;
 
-        const reset = document.getElementById("reset");
         reset.addEventListener("click", function () {
           localStorage.clear();
-          localStorage.setItem("hits", "0");
           spanEl.innerText = 0;
         });
       };
