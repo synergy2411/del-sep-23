@@ -16,6 +16,13 @@
         color: #fff;
         text-align: center;
         padding: 10px;
+        transition: 0.2s all ease;
+      }
+
+      .container-border {
+        border: 3px dotted black;
+        background-color: rgb(227, 224, 224);
+        color: #444;
       }
     </style>
   </head>
@@ -32,21 +39,32 @@
         containers[i].addEventListener("dragstart", onDragStart);
         containers[i].addEventListener("dragover", onDragOver);
         containers[i].addEventListener("drop", onDrop);
+        containers[i].addEventListener("dragenter", onDragEnter);
+        containers[i].addEventListener("dragleave", onDragLeave);
+      }
+
+      function onDragEnter(event) {}
+      function onDragLeave(event) {
+        event.target.classList.remove("container-border");
       }
 
       function onDragStart(event) {
         sourceEl = event.target; // Div A
         event.dataTransfer.setData("text", event.target.innerText); // A
+        event.target.style.opacity = 0.5;
       }
 
       function onDragOver(event) {
         event.preventDefault();
+        event.target.classList.add("container-border");
       }
 
       function onDrop(event) {
         var text = event.dataTransfer.getData("text"); // A
         sourceEl.innerText = event.target.innerText;
+        sourceEl.style.opacity = 1;
         event.target.innerText = text;
+        event.target.classList.remove("container-border");
       }
     </script>
   </body>
