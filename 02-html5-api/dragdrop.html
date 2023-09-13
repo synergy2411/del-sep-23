@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag Drop</title>
+    <style>
+      #container {
+        width: 300px;
+        height: 300px;
+        border: 1px #000 solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Drag Drop Demo</h1>
+
+    <div id="container"></div>
+
+    <img src="https://picsum.photos/200" alt="" draggable id="image" />
+
+    <script>
+      var container = document.getElementById("container");
+      var imgEl = document.getElementById("image");
+
+      container.addEventListener("drag", function () {
+        console.log("DRAG");
+      });
+      container.addEventListener("dragenter", function () {
+        console.log("DRAG ENTER");
+      });
+      container.addEventListener("dragover", function (event) {
+        console.log("DRAG OVER");
+        event.preventDefault();
+      });
+      container.addEventListener("dragleave", function () {
+        console.log("DRAG LEAVE");
+      });
+
+      imgEl.addEventListener("dragstart", function (event) {
+        console.log("DRAG START", event);
+        event.dataTransfer.setData("text", event.target.id);
+      });
+      container.addEventListener("drop", function (event) {
+        console.log("DROP");
+        var imageId = event.dataTransfer.getData("text");
+        var imageEl = document.getElementById(imageId);
+        event.target.appendChild(imageEl);
+      });
+    </script>
+  </body>
+</html>
