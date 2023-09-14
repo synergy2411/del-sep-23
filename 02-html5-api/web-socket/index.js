@@ -16,3 +16,6 @@ socket.on('request', function (request) {
         console.log('connection closed');
     });
 });
+
+
+// web-socket> node index.js
