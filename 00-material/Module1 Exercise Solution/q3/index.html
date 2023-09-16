@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Engine</title>
+    <style>
+      img {
+        width: 200px;
+      }
+      .engine {
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+        display: inline;
+      }
+      figcaption {
+        font-size: 36px;
+        font-weight: 600;
+      }
+      .search-engines {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-engines">
+      <figure class="engine google-engine">
+        <img
+          src="./google.png"
+          alt="leads to Google Page"
+          usemap="#googlemap"
+        />
+        <map name="googlemap">
+          <area
+            shape="rect"
+            coords="0,0,200,200"
+            href="http://www.google.com"
+            target="_blank"
+          />
+        </map>
+        <figcaption>Google</figcaption>
+      </figure>
+      <br />
+      <br />
+      <figure class="engine bing-engine">
+        <img src="./bing.png" alt="leads to Google Page" usemap="#bingmap" />
+        <map name="bingmap">
+          <area
+            shape="rect"
+            coords="0,0,200,200"
+            href="https://www.bing.com/"
+            target="_blank"
+          />
+        </map>
+        <figcaption>Bing</figcaption>
+      </figure>
+      <br />
+      <br />
+      <figure class="engine duck-engine">
+        <img src="./duck.png" alt="leads to Google Page" usemap="#duckmap" />
+        <map name="duckmap">
+          <area
+            shape="rect"
+            coords="0,0,200,200"
+            href="https://duckduckgo.com/"
+            target="_blank"
+          />
+        </map>
+        <figcaption>Duck Duck Go</figcaption>
+      </figure>
+    </div>
+  </body>
+</html>
